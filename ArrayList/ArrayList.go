@@ -85,7 +85,7 @@ func (list *ArrayList) Insert(index int, newVal interface{}) error {
 	return nil
 }
 
-func (list *ArrayList) Clear(index int, newVal interface{}) {
+func (list *ArrayList) Clear() {
 	list.dataStore = make([]interface{}, 0, 10) //开辟空间10个
 	list.theSize = 0
 }

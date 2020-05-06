@@ -29,12 +29,40 @@ func main2() {
 	fmt.Println(list)
 }
 
-func main() {
+func mai3() {
 	list := ArrayList.NewArrayList()
 	list.Append("2")
 	list.Append("b")
 	list.Append("c")
 	for it := list.Iterator(); it.HasNext(); {
+		item, _ := it.Next()
+		fmt.Println(item)
+	}
+}
+
+func main4() {
+	mystack := ArrayList.NewArrayListStack()
+	mystack.Push(1)
+	mystack.Push(2)
+	mystack.Push(3)
+	mystack.Push(4)
+	mystack.Push(5)
+	fmt.Println(mystack.Pop())
+	fmt.Println(mystack.Pop())
+	fmt.Println(mystack.Pop())
+	fmt.Println(mystack.Pop())
+	fmt.Println(mystack.Pop())
+	fmt.Println(mystack.Pop())
+}
+
+func main() {
+	mystack := ArrayList.NewArrayListStackX()
+	mystack.PushX(1)
+	mystack.PushX(2)
+	mystack.PushX(3)
+	mystack.PushX(4)
+	mystack.PushX(5)
+	for it := mystack.MyIt; it.HasNext(); {
 		item, _ := it.Next()
 		fmt.Println(item)
 	}

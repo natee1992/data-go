@@ -1,4 +1,4 @@
-package StackArray
+package ArrayList
 
 type StackArray interface {
 	Clear()
@@ -10,45 +10,42 @@ type StackArray interface {
 }
 
 type Stack struct {
-	dataSource  [] interface{}
+	myArray     *ArrayList
 	capSize     int // 最大范围
 	currentSize int //当前实际使用大小
 }
 
-func NewStack() *Stack {
+func NewArrayListStack() *Stack {
 	myStack := new(Stack)
-	myStack.dataSource = make([]interface{}, 0, 10)
+	myStack.myArray = NewArrayList()
 	myStack.capSize = 10
-	myStack.currentSize = 0
 	return myStack
 }
 
 func (myStack *Stack) Clear() {
-	myStack.dataSource = make([]interface{}, 0, 10)
+	myStack.myArray.Clear()
 	myStack.capSize = 10
-	myStack.currentSize = 0
 }
 
 func (myStack *Stack) Size() int {
-	return myStack.currentSize
+	return myStack.myArray.Size()
 }
+
 func (myStack *Stack) Pop() interface{} {
-	if !myStack.IsEmpty(){
-		last:=myStack.dataSource[myStack.currentSize-1]// 最后一个数据
-		myStack.dataSource=myStack.dataSource[:myStack.currentSize-1] //删除最后一个
-		myStack.currentSize-- //删除
+	if !myStack.IsEmpty() {
+		last := myStack.myArray.dataStore[myStack.myArray.theSize-1]
+		myStack.myArray.Delete(myStack.myArray.theSize - 1)
 		return last
 	}
 	return nil
 }
 func (myStack *Stack) Push(data interface{}) {
-	if !myStack.IsFull(){
-		myStack.dataSource = append(myStack.dataSource,data)
-		myStack.currentSize++
+	if !myStack.IsFull() {
+		myStack.myArray.Append(data)
 	}
 }
 func (myStack *Stack) IsEmpty() bool {
-	if myStack.currentSize == 0 {
+	if myStack.myArray.theSize == 0 {
 		return true
 	} else {
 		return false
@@ -57,7 +54,7 @@ func (myStack *Stack) IsEmpty() bool {
 
 // IsFull 判断满了
 func (myStack *Stack) IsFull() bool {
-	if myStack.currentSize >= myStack.capSize {
+	if myStack.myArray.theSize >= myStack.capSize {
 		return true
 	} else {
 		return false
