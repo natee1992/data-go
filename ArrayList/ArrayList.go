@@ -77,7 +77,7 @@ func (list *ArrayList) Set(index int, newVal interface{}) error {
 func (list *ArrayList) Insert(index int, newVal interface{}) error {
 	list.checkIsFull()                               //检测内存，如果满了自动追加
 	list.dataStore = list.dataStore[:list.theSize+1] //插入数据，内存移动一位
-	for i := list.theSize; i > index; i-- { //从后往前移动
+	for i := list.theSize; i > index; i-- { 		//从后往前移动
 		list.dataStore[i] = list.dataStore[i-1]
 	}
 	list.dataStore[index] = newVal

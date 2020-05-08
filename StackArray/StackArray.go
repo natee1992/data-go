@@ -17,8 +17,8 @@ type Stack struct {
 
 func NewStack() *Stack {
 	myStack := new(Stack)
-	myStack.dataSource = make([]interface{}, 0, 10)
-	myStack.capSize = 10
+	myStack.dataSource = make([]interface{}, 0, 5000)
+	myStack.capSize = 5000
 	myStack.currentSize = 0
 	return myStack
 }

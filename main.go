@@ -55,7 +55,15 @@ func main4() {
 	fmt.Println(mystack.Pop())
 }
 
-func main() {
+func Add(num int) int {
+	if num == 0 {
+		return 0
+	} else {
+		return num + Add(num-1)
+	}
+}
+
+func main6() {
 	mystack := ArrayList.NewArrayListStackX()
 	mystack.PushX(1)
 	mystack.PushX(2)
@@ -66,4 +74,50 @@ func main() {
 		item, _ := it.Next()
 		fmt.Println(item)
 	}
+	//fmt.Println(Add(5))
+}
+
+// 栈模拟递归
+func main7() {
+	mystack := ArrayList.NewArrayListStack()
+	mystack.Push(5)
+	last := 0
+	for !mystack.IsEmpty() {
+		data := mystack.Pop()
+		if data == 0 {
+			last += 0
+		} else {
+			last += data.(int)
+			mystack.Push((data.(int) - 1))
+		}
+
+	}
+	fmt.Println(last)
+}
+
+func FAB(num int) int {
+	if num == 1 || num == 2 {
+		return 1
+	} else {
+		return FAB(num-1) + FAB(num-2)
+	}
+}
+
+// 栈模拟递归--斐波那契数列
+func main() {
+	fmt.Println(FAB(7))
+	mystack := ArrayList.NewArrayListStack()
+	mystack.Push(7)
+	last := 0
+	for !mystack.IsEmpty() {
+		data := mystack.Pop()
+		if data == 1 || data == 2 {
+			last += 1
+		} else {
+			mystack.Push((data.(int) - 2))
+			mystack.Push((data.(int) - 1))
+		}
+
+	}
+	fmt.Println(last)
 }
