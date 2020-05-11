@@ -2,6 +2,8 @@ package main
 
 import (
 	"./ArrayList"
+	"./CricleQueue"
+	"./Queue"
 	"fmt"
 )
 
@@ -104,7 +106,7 @@ func FAB(num int) int {
 }
 
 // 栈模拟递归--斐波那契数列
-func main() {
+func main45() {
 	fmt.Println(FAB(7))
 	mystack := ArrayList.NewArrayListStack()
 	mystack.Push(7)
@@ -120,4 +122,41 @@ func main() {
 
 	}
 	fmt.Println(last)
+}
+
+// 队列使用（队列是广度遍历，栈是深度遍历）
+func main12() {
+	queue := Queue.NewQueue()
+	fmt.Println(queue.IsEmpty())
+	fmt.Println(queue.Size())
+	queue.EnQueue("sb")
+	queue.EnQueue("sb2")
+	queue.EnQueue("sb3")
+	queue.EnQueue("sb4")
+	fmt.Println(queue.Size())
+	fmt.Println(queue.Front())
+	fmt.Println(queue.End())
+	fmt.Println(queue.Size())
+	queue.DeQueue()
+	fmt.Println(queue.Size())
+	queue.DeQueue()
+	fmt.Println(queue.Size())
+	queue.DeQueue()
+	fmt.Println(queue.Size())
+	queue.DeQueue()
+	fmt.Println(queue.Size())
+}
+
+func main() {
+	var q CricleQueue.CircleQueue
+	CricleQueue.InitQueue(&q)
+	CricleQueue.EnQueue(&q,1)
+	CricleQueue.EnQueue(&q,2)
+	CricleQueue.EnQueue(&q,3)
+	CricleQueue.EnQueue(&q,4)
+	fmt.Println(CricleQueue.DeQueue(&q))
+	fmt.Println(CricleQueue.DeQueue(&q))
+	fmt.Println(CricleQueue.DeQueue(&q))
+	fmt.Println(CricleQueue.DeQueue(&q))
+
 }
