@@ -24,26 +24,24 @@ func mainxs() {
 /*
 栈，先进后出，操作口只有一个，头部删除头部插入，尾部插入，尾部删除
 队列 头部插入，尾部删除，尾部插入，头部删除
-
 */
 
 func mainxs1() {
 	myStack := Link.NewStack()
-	for i:=0;i<100;i++{
+	for i := 0; i < 100; i++ {
 		myStack.Push(i)
 	}
-	for data:=myStack.Pop();data!=nil;data=myStack.Pop(){
+	for data := myStack.Pop(); data != nil; data = myStack.Pop() {
 		fmt.Println(data)
 	}
 }
 
-
-func main() {
+func main10() {
 	myStack := Link.NewLinkQueue()
-	for i:=0;i<10;i++{
+	for i := 0; i < 10; i++ {
 		myStack.Enqueue(i)
 	}
-	for data:=myStack.Dequeue();data!=nil;data=myStack.Dequeue(){
+	for data := myStack.Dequeue(); data != nil; data = myStack.Dequeue() {
 		fmt.Println(data)
 	}
 }
